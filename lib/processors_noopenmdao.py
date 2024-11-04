@@ -120,7 +120,7 @@ class findFaceGetPulse(object):
         self.frame_out = self.frame_in
         self.gray = cv2.equalizeHist(cv2.cvtColor(self.frame_in,
                                                   cv2.COLOR_BGR2GRAY))
-        col = (100, 255, 100)
+        col = (100, 255, 255)
         if self.find_faces:
             cv2.putText(
                 self.frame_out, "Press 'C' to change camera (current: %s)" % str(
@@ -196,7 +196,7 @@ class findFaceGetPulse(object):
             self.freqs = float(self.fps) / L * np.arange(L / 2 + 1)
 
             freqs = 60. * self.freqs
-            idx = np.where((freqs > 50) & (freqs < 180))
+            idx = np.where((freqs > 52) & (freqs < 180))
 
             pruned = self.fft[idx]
             phase = phase[idx]
